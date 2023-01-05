@@ -13,9 +13,17 @@ const Toppings = ({ addTopping, pizza }) => {
         {toppings.map(topping => {
           let spanClass = pizza.toppings.includes(topping) ? 'active' : '';
           return (
-            <li key={topping} onClick={() => addTopping(topping)}>
+            <motion.li 
+              whileHover={{
+                color: "yellow",
+                scale: 1.3,
+                originX: 0
+              }}
+              transition={{type: 'spring', stiffness: 300}}
+              key={topping} 
+              onClick={() => addTopping(topping)}>
               <span className={spanClass}>{ topping }</span>
-            </li>
+            </motion.li>
           )
         })}
       </ul>
